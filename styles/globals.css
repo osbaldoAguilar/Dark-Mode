@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.white-content {
+  background: hsl(0deg 0% 13%);
+  color: whitesmoke;
+}
