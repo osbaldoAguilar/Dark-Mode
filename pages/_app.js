@@ -6,7 +6,6 @@ function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(true)
   return( <ThemeContextWrapper>
         <ThemeContext.Consumer>
-
           {({changeTheme}) => (
             <button className='darkBtn' color='link' onClick={
               () => {setDarkMode(!darkMode); changeTheme(darkMode ? themes.light : themes.dark);}
