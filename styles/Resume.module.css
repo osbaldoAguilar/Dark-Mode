@@ -1,8 +1,8 @@
-.resume {
-    /* background-color: aqua; */
+/* .resume {
     display: flex;
     width: 100%;
     height: 100%;
+    flex-direction: column;
 }
 
 .header {
@@ -21,14 +21,8 @@
     border-right: 3px solid #707070;
     padding-right: 10px;
     margin-right: 5px;
-    border-radius: 10px;
+    border-radius: 3px;
 }
-
-/* .headerS {
-    
-    
-    height: auto;
-} */
 
 .headerR {
     display: inline-block;
@@ -38,5 +32,47 @@
     border-left: 3px solid #707070;
     padding-left: 10px;
     margin-left: 5px;
-    border-radius: 10px;
+    border-radius: 3px;
 }
+
+.body {
+    width: 80%;
+    margin: auto;
+}
+
+.body h4 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.body div {
+    margin: 10px 0px;
+    border-bottom: 5px solid #707070;
+    width: 100%;
+
+}
+
+.body ul {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.body li {
+    list-style: none;
+}
+
+.body a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: inherit;
+}
+
+.body a:hover {
+    text-decoration: underline;
+} */
