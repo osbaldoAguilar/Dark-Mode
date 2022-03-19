@@ -2,32 +2,33 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Nav from '../components/Nav'
 import styles from '../styles/Home.module.css'
-import res from '../styles/Resume.module.css'
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
+import {useState} from 'react'
+import Sample from '../components/Sample'
+import { PrintBtn } from '../components/utils/Printing'
 
 export default function Home() {
   const yourName = 'Osbaldo Aguilar'
-  function printDocument() {
-    const input = document.getElementById('divToPrint');
-    html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', [400, 1210]
-        //   {
-        //   orientation: "portrait",
-        //   unit: "in",
-        //   format: [8.5 ,11]
-        // }
-        );
-        pdf.addImage(imgData, 'JPEG', 0, 0);
-        // pdf.output('dataurlnewwindow');
-        // pdf.addHTML($('#resume'))
-        pdf.save(`${yourName}-Resueme.pdf`);
-      })
-    ;
-  }
+  // function printDocument() {
+  //   const input = document.getElementById('divToPrint');
+  //   html2canvas(input)
+  //     .then((canvas) => {
+  //       const imgData = canvas.toDataURL('image/png');
+  //       const pdf = new jsPDF('p', 'mm', [400, 1210]
+  //       //   {
+  //       //   orientation: "portrait",
+  //       //   unit: "in",
+  //       //   format: [8.5 ,11]
+  //       // }
+  //       );
+  //       pdf.addImage(imgData, 'JPEG', 0, 0);
+  //       // pdf.output('dataurlnewwindow');
+  //       // pdf.addHTML($('#resume'))
+  //       pdf.save(`${yourName}-Resueme.pdf`);
+  //     })
+  //   ;
+  // }
 
+  const [show, setShow] = useState(true)
   
   return (
     <div className={styles.container}>
@@ -39,58 +40,25 @@ export default function Home() {
 
       <main className={styles.main}>
       <Nav/>
-      <button onClick={()=> printDocument()} >Export to PDF</button>
+      {/* <button onClick={()=> printDocument()} >Export to PDF</button> */}
+      <PrintBtn yourName={yourName}/>
         <section id="divToPrint" >
         <h2 className={styles.title}>
         <a href="https://github.com/osbaldoAguilar/Dark-Mode">Osbaldo Aguilar: Resume Creator!</a>
         </h2>
-        <div className={res.resume}>
-          <div className={res.header}>
-            <div className={res.headerL}>
-              <p>(919) 798-4119 📞</p>
-              <p>
-              osbaldo@codethedream.org 
-              &
-              osbaldoaguilar76@gmail.com 📧
-              </p>
-              <p>osbaldoaguilar.dev 🕸️</p>
+        <div className="sepeator">-----------</div>
+        <p>Hello I was having issues coming up with ideas to show off the skills I have acquired over the last 3 years. I was having trouble coming up with mini projects with defined results. Here's my first attempt. Fill out a form to create a Resume that you can download as a PDF!!</p>
+        <div>
+          {!show ? 
+            <div onClick={()=> setShow(!show)}>    
+              <Sample/> 
             </div>
-            <div>
-              <div className={res.headerR}>
-                <h3>{yourName}</h3>
-              </div>
-            </div>
-          </div>
-          <div className={res.body}>
-            <h4 className={res.bodyTitle}>
-              Summary
-            </h4>
-            <p>
-            Tech savvy Web Developer with close to 3 years in web development. Confident in developing on a variety of platforms and mobile systems. Work well within team environments. Flexible hard worker ready to learn and contribute to team success.
-            </p>
-            <div />
-            <h4>EXPERIENCE</h4>
-            <p>Front end web and mobile development using React, vanilla Javascript, WordPress and Shopify where I have exercised my CSS and HTML skills as well a peek to CMS to create various types of projects including Dream Statement, a next js app that came from code I developed and along with another team member we programed it under a month. Tasks for Dream Statement included wire-framing and developing code as more details were revealed. I was in charge of creating a multi step form that stores all the data in the global state and rendering out the statement. I also have been in a 4 person team where we have developed 5 WordPress sites. My duties were content-wrangler, content-layout and HTML/CSS changes/features using SFTP to add changes. Another project I have worked on is a restaurant react app where you add the type of fish by filling out a modal and it adds to your menu and from your menu you can add the type or quantity of that fish to your order. Using functions your order then adds the total and formats it using dollars. Currently this resume was created by an app I developed.</p>
-            <div />
-            <h4>Skills</h4>
-            <ul>
-              <li>&nbsp;--&nbsp;HTML&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;JavaScript&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;React.js&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;Next.js&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;CSS&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;Sass&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;Styled Componenets&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;Web Development&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;WordPress&nbsp;--&nbsp;</li>
-              <li>&nbsp;--&nbsp;Shopify&nbsp;--&nbsp;</li>
-            </ul>
-            <div/>
-            <h4>Licenses & Certifications</h4>
-              <a href='/'>Emerging Leaders Certification - Truist Leadership Institute</a>
-              <a href='/'>React For Beginners - Bostype Inc</a>
-          </div>
+              : 
+            <div onClick={()=> setShow(!show)}>
+            Click Me To See Sample Resume</div>
+          }
         </div>
+  
         </section>
       </main>
 
