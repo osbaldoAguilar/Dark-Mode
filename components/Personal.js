@@ -4,16 +4,6 @@ import SearchCategoryLayout from 'semantic-ui-react/dist/commonjs/modules/Search
 import {store} from './DataStore'
 import inputHandler from './utils/InputHandler'
 
-export const handleSubmit = e => {
-    const personal = {
-        name,
-        phone,
-        email,
-        website
-    }
-
-    dispatch({type: 'SET_PERSONAL_DATA', payload: personal})
-}
 function Personal({formSection}) {
     const gs = useContext(store)
     const {dispatch} = gs
@@ -39,11 +29,22 @@ function Personal({formSection}) {
                 break;
             default:
                 break;
+            }
+        }        
+    const handleSubmit = () => {
+        const personal = {
+            name,
+            phone,
+            email,
+            website
         }
+        
+        dispatch({type: 'SET_PERSONAL_DATA', payload: personal})
     }
 
+    console.log('gs: ', gs);
   return (
-    <Form.Field onSubmit={handleSubmit}>
+    <Form.Field>
         <p>Page {formSection + 1}</p>
         <label htmlFor="name">Name:
             <input type="text" name="Name" id="name" placeholder='Name' onChange={(e) => handleInput(e)}/>
@@ -57,6 +58,7 @@ function Personal({formSection}) {
         <label htmlFor="Website">Website: 
             <input type="text" name="Website" id="website" onChange={(e) => handleInput(e)}/>
         </label>
+        <button type='button' onClick={handleSubmit}>Save Answers</button>
     </Form.Field>
   )
 }
