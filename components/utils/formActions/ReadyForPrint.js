@@ -1,9 +1,9 @@
-import res from '../styles/Resume.module.css'
-import { store } from './DataStore'
+import res from '../../../styles/Resume.module.scss'
+import { store } from '../../DataStore'
 import {useContext} from 'react'
 
 
-function ReadyForPrint() {
+function ReadyForPrint({id}) {
     const gs = useContext(store)
     console.log('RFP: ',gs);
     const gsState = gs.state
@@ -17,7 +17,7 @@ function ReadyForPrint() {
     let skills = gsState.skills
     let certs = gsState.certs
   return (
-    <div className={res.resume}>
+    <div className={res.resume} id={id}>
           <div className={res.header}>
             <div className={res.headerL}>
               <p>{phone} 📞</p>
@@ -38,7 +38,7 @@ function ReadyForPrint() {
             <div />
             <h4>EXPERIENCE</h4>
                 <ul>
-                    {experience?.map((index, key) => <li key={key}>{experience[key]}</li>)}
+                    {[...Array(experience)]?.map((index, key) => <li key={key}>{experience[key]}</li>)}
                 </ul>
             <div />
             <h4>Skills</h4>

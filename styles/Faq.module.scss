@@ -1,0 +1,58 @@
+
+$main-color: rgb(119, 136, 153);
+$secondary-color: rgb(86, 102, 119);
+$background-color:ivory;
+$content-color:ivory;
+$font-color: whitesmoke;
+  
+.faqBody {
+    background-color: $background-color;
+    .faq {
+        border-radius: 7px;
+        overflow: hidden;
+        .tabToggle {
+            display: none;
+        }
+        .tabLabel {
+            background-color: $main-color;
+            display: flex;
+            justify-content: space-between;
+            color: $font-color;
+            padding: 1em;
+            font-weight: bold;
+        }
+        .tabLabel:hover {
+            background-color: $secondary-color;
+        }
+        .tabToggle:checked~.tabLabel {
+        background-color: $secondary-color;
+        }
+        .tabLabel::before {
+            content: '\276f';
+            transition: all .4s;
+        }
+        .tabToggle:checked~.tabLabel::before {
+            transform: rotate(90deg);
+        }
+        .tabContent {
+            background-color: $content-color;
+            max-height: 0px;
+            overflow: hidden;
+            transition: all .4s;
+            padding: 0 1em;
+        }
+        .tabToggle:checked~.tabContent {
+            max-height: 100vh;
+            padding: 1em;
+        }
+    
+    }
+}
+
+
+
+
+
+
+
+

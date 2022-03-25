@@ -1,8 +1,11 @@
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
+import styles from '../../styles/Home.module.scss'
 
-function printDocument(yourName) {
-      const input = document.getElementById('divToPrint');
+function printDocument({propsToPass}) {
+      const yourName = propsToPass[0]
+      const id = propsToPass[1]
+      const input = document.getElementById(id);
       html2canvas(input)
         .then((canvas) => {
           const imgData = canvas.toDataURL('image/png');
@@ -21,8 +24,9 @@ function printDocument(yourName) {
       ;
     }
 
-const PrintBtn = ({yourName}) => {
-    return <button onClick={()=> printDocument(yourName)} >Export to PDF</button>
+const PrintBtn = (propsToPass) => {
+
+    return <button className={styles.btns} onClick={()=> printDocument(propsToPass)} >Export to PDF</button>
 }
 
 export {printDocument, PrintBtn}

@@ -1,7 +1,7 @@
 import { useContext, useState, useRef, useEffect } from 'react'
 import { Form } from 'semantic-ui-react'
-import CreateInputs from './CreateInputs'
-import {store} from './DataStore'
+// import CreateInputs from './CreateInputs'
+import {store} from '../DataStore'
 
 function Certificates({formSection}) {
     const gs = useContext(store)

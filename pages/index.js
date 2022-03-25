@@ -1,35 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Nav from '../components/Nav'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import {useState} from 'react'
-import Sample from '../components/Sample'
+import Sample from '../components/formSections/Sample'
 import { PrintBtn } from '../components/utils/Printing'
 
 export default function Home() {
   const yourName = 'Osbaldo Aguilar'
-  // function printDocument() {
-  //   const input = document.getElementById('divToPrint');
-  //   html2canvas(input)
-  //     .then((canvas) => {
-  //       const imgData = canvas.toDataURL('image/png');
-  //       const pdf = new jsPDF('p', 'mm', [400, 1210]
-  //       //   {
-  //       //   orientation: "portrait",
-  //       //   unit: "in",
-  //       //   format: [8.5 ,11]
-  //       // }
-  //       );
-  //       pdf.addImage(imgData, 'JPEG', 0, 0);
-  //       // pdf.output('dataurlnewwindow');
-  //       // pdf.addHTML($('#resume'))
-  //       pdf.save(`${yourName}-Resueme.pdf`);
-  //     })
-  //   ;
-  // }
-
   const [show, setShow] = useState(true)
-  
+  const propsToPass = []
+  const id = 'divToPrint'
+  if(yourName && id) {
+    propsToPass.push(yourName);
+    propsToPass.push(id)
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -39,27 +22,30 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <Nav/>
       {/* <button onClick={()=> printDocument()} >Export to PDF</button> */}
-      <PrintBtn yourName={yourName}/>
-        <section id="divToPrint" >
         <h2 className={styles.title}>
         <a href="https://github.com/osbaldoAguilar/Dark-Mode">Osbaldo Aguilar: Resume Creator!</a>
         </h2>
         <div className="sepeator">-----------</div>
+        <section id="divToPrint" >
         <p>Hello I was having issues coming up with ideas to show off the skills I have acquired over the last 3 years. I was having trouble coming up with mini projects with defined results. Here's my first attempt. Fill out a form to create a Resume that you can download as a PDF!!</p>
         <div>
           {!show ? 
-            <div onClick={()=> setShow(!show)}>    
+            <div className={styles.sampleContainer} onClick={()=> setShow(!show)}> 
+              {/* <div className={styles.minify}> */}
+                <div className={styles.btns}>Click To Hide Resume</div>   
+              {/* </div> */}
               <Sample/> 
+              <PrintBtn propsToPass={propsToPass}/>
             </div>
               : 
-            <div onClick={()=> setShow(!show)}>
-            Click Me To See Sample Resume</div>
+            <div className={styles.btns} onClick={()=> setShow(!show)}>
+            Click Me To See Created Resume</div>
           }
         </div>
   
         </section>
+          
       </main>
 
       <footer className={styles.footer}>

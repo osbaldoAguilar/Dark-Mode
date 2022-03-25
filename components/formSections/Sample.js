@@ -1,4 +1,4 @@
-import res from '../styles/Resume.module.css'
+import res from '../../styles/Resume.module.scss'
 
 
 function Sample() {
@@ -9,9 +9,7 @@ function Sample() {
             <div className={res.headerL}>
               <p>(919) 798-4119 📞</p>
               <p>
-              osbaldo@codethedream.org 
-              &
-              osbaldoaguilar76@gmail.com 📧
+              osbaldo@codethedream.org 📧
               </p>
               <p>osbaldoaguilar.dev 🕸️</p>
             </div>

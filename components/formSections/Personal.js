@@ -1,8 +1,7 @@
 import { useContext, useState, useRef } from 'react'
 import { Form } from 'semantic-ui-react'
-import SearchCategoryLayout from 'semantic-ui-react/dist/commonjs/modules/Search/SearchCategoryLayout';
-import {store} from './DataStore'
-import inputHandler from './utils/InputHandler'
+import {store} from '../DataStore'
+// import inputHandler from './utils/InputHandler'
 
 function Personal({formSection}) {
     const gs = useContext(store)
