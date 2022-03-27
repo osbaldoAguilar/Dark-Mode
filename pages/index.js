@@ -26,16 +26,19 @@ export default function Home() {
         <h2 className={styles.title}>
         <a href="https://github.com/osbaldoAguilar/Dark-Mode">Osbaldo Aguilar: Resume Creator!</a>
         </h2>
-        <div className="sepeator">-----------</div>
-        <section id="divToPrint" >
-        <p>Hello I was having issues coming up with ideas to show off the skills I have acquired over the last 3 years. I was having trouble coming up with mini projects with defined results. Here's my first attempt. Fill out a form to create a Resume that you can download as a PDF!!</p>
+        <div>
+          <h4>Reason and Problem to resolve: </h4>
+          <p>Hello I was having issues coming up with ideas to show off the skills I have acquired over the last 3 years. I was having trouble coming up with mini projects with defined results. Here's my first attempt. Fill out a form to create a Resume that you can download as a PDF!!</p>
+        </div>
         <div>
           {!show ? 
             <div className={styles.sampleContainer} onClick={()=> setShow(!show)}> 
               {/* <div className={styles.minify}> */}
                 <div className={styles.btns}>Click To Hide Resume</div>   
               {/* </div> */}
-              <Sample/> 
+              <section id="divToPrint" >
+                <Sample/> 
+              </section>
               <PrintBtn propsToPass={propsToPass}/>
             </div>
               : 
@@ -44,7 +47,6 @@ export default function Home() {
           }
         </div>
   
-        </section>
           
       </main>
 

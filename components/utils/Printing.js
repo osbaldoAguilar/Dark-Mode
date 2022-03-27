@@ -19,7 +19,7 @@ function printDocument({propsToPass}) {
           pdf.addImage(imgData, 'JPEG', 0, 0);
           // pdf.output('dataurlnewwindow');
           // pdf.addHTML($('#resume'))
-          pdf.save(`${yourName}-Resueme.pdf`);
+          pdf.save(`${yourName}-Resume.pdf`);
         })
       ;
     }

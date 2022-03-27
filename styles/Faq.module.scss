@@ -1,14 +1,14 @@
 
-$main-color: rgb(119, 136, 153);
-$secondary-color: rgb(86, 102, 119);
-$background-color:ivory;
-$content-color:ivory;
+$secondary-color: hsl(14, 97%, 57% / 0.90);
+$main-color: hsl(14, 97%, 57%);
+$background-color:transparent;
+$content-color:transparent;
 $font-color: whitesmoke;
-  
+
 .faqBody {
     background-color: $background-color;
     .faq {
-        border-radius: 7px;
+        // border-radius: 7px
         overflow: hidden;
         .tabToggle {
             display: none;
