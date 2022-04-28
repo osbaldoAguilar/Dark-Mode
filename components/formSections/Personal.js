@@ -46,16 +46,16 @@ function Personal({formSection}) {
     <Form.Field>
         <p>Page {formSection + 1}</p>
         <label htmlFor="name">Name:
-            <input type="text" name="Name" id="name" placeholder='Name' onChange={(e) => handleInput(e)}/>
+            <input type="text" name="Name" id="name" required placeholder='Name' onChange={(e) => handleInput(e)}/>
         </label>
         <label htmlFor="Phone">Phone: 
-            <input type="tel" name="Phone" id="phone" onChange={(e) => handleInput(e)}/>
+            <input type="tel" name="Phone" id="phone" required placeholder='Phone' onChange={(e) => handleInput(e)}/>
         </label>
         <label htmlFor="Email">Email: 
-            <input type="email" name="Email" id="email" onChange={(e) => handleInput(e)}/>
+            <input type="email" name="Email" id="email" required placeholder='Email' onChange={(e) => handleInput(e)}/>
         </label>
         <label htmlFor="Website">Website: 
-            <input type="text" name="Website" id="website" onChange={(e) => handleInput(e)}/>
+            <input type="text" name="Website" id="website" placeholder='Website if you have one' onChange={(e) => handleInput(e)}/>
         </label>
         <button type='button' onClick={handleSubmit}>Save Answers</button>
     </Form.Field>

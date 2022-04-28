@@ -15,7 +15,7 @@ function Experience({formSection}) {
         console.log('index: '+ index);
         switch (e.target.id) {
             case "numsOfXp":
-                setNumInputs(e.target.value)
+                setTimeout(() => {setNumInputs(e.target.value)}, 1500)
                 // CreateNumOfInputs(inputRef)
                 break;
             case `xp${index+1}`:

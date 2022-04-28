@@ -15,7 +15,7 @@ function Certificates({formSection}) {
         console.log('index: '+ index);
         switch (e.target.id) {
             case "numsOfCerts":
-                setNumInputs(e.target.value)
+                setTimeout(() => {setNumInputs(e.target.value)}, 1500)
                 // CreateNumOfInputs(inputRef)
                 break;
             case `cert${index+1}`:
